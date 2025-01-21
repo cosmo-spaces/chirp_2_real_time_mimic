@@ -143,4 +143,5 @@ def handle_audio_chunk(data):
         socketio.emit('error', {'message': str(e)})
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True, allow_unsafe_werkzeug=True)
+    port = int(os.environ.get("PORT", 3105))
+    socketio.run(app, debug=True, host = '0.0.0.0', port = port, allow_unsafe_werkzeug=True)
